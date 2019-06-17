@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>socket.io chat</title>
+	<script src="/socket.io.js"></script>
+</head>
+
+<body>
+	<h4 id="id"></h4>
+	<ul id="messages"></ul>
+	<input id="input" autocomplete="off" /><button id="send">Send</button>
+	<script>
+		const socket = io('http://localhost:32000');
+		let my = '';
+		
+		const send = document.getElementById('send');
+		const input = document.getElementById('input')
+
+		const sendEvent = self => {
+			socket.emit('send', { sender: my, data: input.value });
+			input.value = '';
+		};
+
+		socket.on('join', message => {
+			console.log(message);
+
+			my = message.data;
+			document.getElementById('id').innerText = message.data;
+
+			send.removeEventListener('click', sendEvent);
+			send.addEventListener('click', sendEvent);
+		});
+		socket.on('recv', message => {
+			console.log(message);
+		});
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+{
+  "name": "match-socket",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "debug": "node .\\node_modules\\nodemon\\bin\\nodemon.js app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ixsiid/match-socket.git"
+  },
+  "author": "ixsiid",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ixsiid/match-socket/issues"
+  },
+  "homepage": "https://github.com/ixsiid/match-socket#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^2.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
